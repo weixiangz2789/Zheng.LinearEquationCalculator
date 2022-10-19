@@ -31,17 +31,18 @@ public class LinearEquation {
         return roundedToHundredth(y1-(x1*slope()));
     }
     public String equation() {
-        double xDiff = (x2 - x1);
-        double yDiff = (y2 - y1);
+        int xDiff = (int)(x2 - x1);
+        int yDiff = (int)(y2 - y1);
         if (xDiff < 0){
             xDiff *= -1;
             yDiff *= -1;
         }
-        if (yIntercept() == 0){
-            return "y = " + yDiff/xDiff + "x";
-        }
+
         if (slope() == 1){
-            return  "y = " + "x";
+            if (yIntercept() == 0){
+                return "y = " + "x";
+            }
+            return  "y = " + "x" + yIntercept();
         }
         if (yIntercept() < 0) {
             if (yDiff % xDiff == 0){
@@ -54,6 +55,12 @@ public class LinearEquation {
                 return "y = " + yDiff/xDiff + "x" + " + " + (yIntercept());
             }
             return "y = " + yDiff + "/" + xDiff + "x" + " + " + yIntercept();
+        }
+        if (yIntercept() == 0){
+            if (slope() == 1){
+                return "y = " + "x";
+            }
+            return "y = " + yDiff/xDiff + "x";
         }
         return "";
     }
