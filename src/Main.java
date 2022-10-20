@@ -19,14 +19,15 @@ public class Main {
         int x2 = Integer.parseInt(coord2.substring(1, index2));
         int y2 = Integer.parseInt(coord2.substring(index2 + 2, index3));
 
-        if (x1 == x2){
+        if (x1 == x2) {
             System.out.println("These points on a vertical line: x = " + x1);
+        } else {
+            LinearEquation calc = new LinearEquation(x1, y1, x2, y2);
+            System.out.println(calc.lineInfo());
+            System.out.println("Enter a value for x:");
+            double temp = scan.nextDouble();
+            System.out.println();
+            System.out.println("The point on the line is: " + calc.coordinateForX(temp));
         }
-        LinearEquation calc = new LinearEquation(x1, y1, x2, y2);
-        System.out.println(calc.lineInfo());
-        System.out.println("Enter a value for x:");
-        double temp = scan.nextDouble();
-        System.out.println();
-        System.out.println("The point on the line is: " + calc.coordinateForX(temp));
     }
 }
