@@ -24,6 +24,7 @@ public class LinearEquation {
         return roundedToHundredth(yDiff/xDiff);
     }
     public double yIntercept(){
+
         return roundedToHundredth(y1-(x1*slope()));
     }
     public String equation() {
@@ -76,10 +77,6 @@ public class LinearEquation {
         return (double)(Math.round(toRound * 100))/100;
     }
     public String lineInfo(){
-        int xDiff = (int)(x2 - x1);
-        if (xDiff == 0){
-            return "These points are on the vertical line: x = " + x1;
-        }
         return "The two points are: (" + x1 + ", " + y1 + ")" +  " and (" + x2 + ", " + y2 + ")" + "\n"
                 + "The equation of the line between these two points is: " + equation() + "\n"
                 + "The slope of the line is: " + slope() + "\n"
