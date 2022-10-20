@@ -5,8 +5,6 @@ public class LinearEquation {
     private int y1;
     private int x2;
     private int y2;
-
-
     public LinearEquation(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
         this.y1 = y1;
@@ -14,8 +12,6 @@ public class LinearEquation {
         this.y2 = y2;
 
     }
-
-
     public double distance(){
         double xDiff = x2-x1;
         double yDiff = y2-y1;
@@ -42,25 +38,34 @@ public class LinearEquation {
             if (yIntercept() == 0){
                 return "y = " + "x";
             }
-            return  "y = " + "x" + yIntercept();
+            return  "y = " + "x" + " + " + yIntercept();
+        }
+        if (slope() == -1){
+            if (yIntercept() == 0){
+                return "y = -" + "x";
+            }
+            return  "y = -" + "x" + " + " + yIntercept();
+        }
+        if (slope() == 0){
+            return  "y = " + (int) yIntercept();
+        }
+        if (yIntercept() == 0){
+            if (yDiff % xDiff == 0){
+                return "y = " + yDiff/xDiff + "x";
+            }
+            return "y = " + yDiff + "/" + xDiff + "x";
         }
         if (yIntercept() < 0) {
             if (yDiff % xDiff == 0){
-                return "y = " + yDiff/xDiff + "x" + " + " + Math.abs(yIntercept());
+                return "y = " + yDiff/xDiff + "x" + " - " + Math.abs(yIntercept());
             }
             return "y = " + yDiff + "/" + xDiff + "x" + " - " + Math.abs(yIntercept());
         }
         if (yIntercept() > 0){
             if (yDiff % xDiff == 0){
-                return "y = " + yDiff/xDiff + "x" + " + " + (yIntercept());
+                return "y = " + yDiff/xDiff + "x" + " + " + yIntercept();
             }
             return "y = " + yDiff + "/" + xDiff + "x" + " + " + yIntercept();
-        }
-        if (yIntercept() == 0){
-            if (slope() == 1){
-                return "y = " + "x";
-            }
-            return "y = " + yDiff/xDiff + "x";
         }
         return "";
     }
@@ -73,12 +78,9 @@ public class LinearEquation {
     }
     public  String lineInfo(){
         return "The two points are: (" + x1 + ", " + y1 + ")" +  " and (" + x2 + ", " + y2 + ")" + "\n"
-                + "The equation of the line between these two points is " + equation() + "\n"
-                + "The slope of the line is " + slope() + "\n" + "The y-intercept of the line is " + yIntercept() + "\n"
-                + "The distance between the two points is " + distance();
+                + "The equation of the line between these two points is: " + equation() + "\n"
+                + "The slope of the line is: " + slope() + "\n"
+                + "The y-intercept of the line is: " + yIntercept() + "\n"
+                + "The distance between the two points is: " + distance();
     }
-
-
-
-
 }
