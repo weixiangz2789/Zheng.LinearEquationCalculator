@@ -9,6 +9,7 @@ public class Main {
         System.out.println("Enter coordinate 2: ");
         String coord2 = scan.nextLine();
 
+
         int index = coord1.indexOf(",");
         int index1 = coord1.indexOf(")");
         int index2 = coord2.indexOf(",");
